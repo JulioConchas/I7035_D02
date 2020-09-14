@@ -11,7 +11,7 @@ func main(){
     case 1: area_cuadrado()
     case 2: area_triangulo()
     case 3: area_circulo()
-    case 4: fmt.Println("Fahrenheit to Celcius")
+    case 4: fahrenheit_to_celcius()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -54,4 +54,13 @@ func area_circulo(){
     fmt.Scanf("%g",&radio)
     area = pi * (radio*radio)
     fmt.Println("Area = ",area,"cm")
+}
+func fahrenheit_to_celcius(){
+    var fahrenheit,celcius float32
+
+    fmt.Println("== Fahrenheit to Celcius ===")
+    fmt.Println("Ingresa Fahrenheit: ")
+    fmt.Scanf("%g",&fahrenheit)
+    celcius = (fahrenheit - 32) * 5/9
+    fmt.Println(fahrenheit,"ºf = ",celcius,"ºc")
 }
