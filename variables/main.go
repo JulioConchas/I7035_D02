@@ -10,7 +10,7 @@ func main(){
     switch option {
     case 1: area_cuadrado()
     case 2: area_triangulo()
-    case 3: fmt.Println("Area circulo")
+    case 3: area_circulo()
     case 4: fmt.Println("Fahrenheit to Celcius")
     default: fmt.Println("Practica número:",option," no existe")
     }
@@ -43,5 +43,15 @@ func area_triangulo(){
     fmt.Println("Ingresa la altura: ")
     fmt.Scanf("%g",&altura)
     area = ( base * altura ) / 2
+    fmt.Println("Area = ",area,"cm")
+}
+func area_circulo(){
+    var radio,area,pi float32
+    pi = 3.14
+
+    fmt.Println("===== Area del Circulo =====")
+    fmt.Println("Ingresa el radio: ")
+    fmt.Scanf("%g",&radio)
+    area = pi * (radio*radio)
     fmt.Println("Area = ",area,"cm")
 }
