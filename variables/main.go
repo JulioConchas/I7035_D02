@@ -23,7 +23,7 @@ func menu(){
     fmt.Println("[1] Area del cuadrado")
     fmt.Println("[2] Area del triángulo")
     fmt.Println("[3] Area del círculo")
-    fmt.Println("[4] Fahrenheit a Celcius")
+    fmt.Println("[4] Fahrenheit a Celsius")
 }
 func area_cuadrado(){
     var lado,resultado float32
@@ -58,7 +58,7 @@ func area_circulo(){
 func fahrenheit_to_celcius(){
     var fahrenheit,celcius float32
 
-    fmt.Println("== Fahrenheit to Celcius ===")
+    fmt.Println("== Fahrenheit to Celsius ===")
     fmt.Println("Ingresa Fahrenheit: ")
     fmt.Scanf("%g",&fahrenheit)
     celcius = (fahrenheit - 32) * 5/9
