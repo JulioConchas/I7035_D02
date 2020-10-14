@@ -9,6 +9,7 @@ func main(){
 
     switch option {
     case 1: signo_zodiacal()
+    case 2: numero_e()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -17,6 +18,7 @@ func menu(){
     fmt.Println("= conchasjimenez@gmail.com =")
     fmt.Println("========= Practicas ========")
     fmt.Println("[1] Signo zodiacal.")
+    fmt.Println("[2] Número e.")
 }
 func signo_zodiacal(){
     var dia int
@@ -55,4 +57,26 @@ func signo_zodiacal(){
         fmt.Println(" No existe mes con: días ",dia," meses",mes," lol ")
     }
 
+}
+func numero_e(){
+    var e float32
+    e = 0
+    for i := 0; i < 30; i++ {
+        e = e + 1/float32(factorial(i));
+    }
+    fmt.Println("e = ",e)
+}
+func factorial(n int) int{
+    var f int;
+    var i int;
+
+    if n == 0{
+        f = 1;
+    } else{
+        f = 1
+        for i = n; i >= 1; i-- {
+            f = f * i;
+        }
+    }
+    return f
 }
