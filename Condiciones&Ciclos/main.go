@@ -9,9 +9,9 @@ func main(){
 
     switch option {
     case 1: prueba_clase()
-    case 2: area_triangulo()
-    case 3: area_circulo()
-    case 4: fahrenheit_to_celcius()
+    // case 2: area_triangulo()
+    // case 3: area_circulo()
+    // case 4: fahrenheit_to_celcius()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -20,10 +20,20 @@ func menu(){
     fmt.Println("= conchasjimenez@gmail.com =")
     fmt.Println("========= Practicas ========")
     fmt.Println("[1] Prueba de clase")
-    fmt.Println("[2] Area del triángulo")
-    fmt.Println("[3] Area del círculo")
-    fmt.Println("[4] Fahrenheit a Celsius")
 }
 func prueba_clase(){
-    
+    var temp int
+
+    fmt.Print("Temp: ")
+    fmt.Scan(&temp)
+
+    if temp < 0 {
+        fmt.Println("Está helado")
+    } else if temp >= 0 && temp < 12 {
+        fmt.Println("Está haciendo frío")
+    } else if temp >= 12 && temp < 18 {
+        fmt.Println("Está agusto")
+    }else {
+        fmt.Println("Está caluroso")
+    }
 }
