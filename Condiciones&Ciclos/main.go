@@ -8,10 +8,7 @@ func main(){
     fmt.Scanf("%d",&option)
 
     switch option {
-    case 1: prueba_clase()
-    // case 2: area_triangulo()
-    // case 3: area_circulo()
-    // case 4: fahrenheit_to_celcius()
+    case 1: signo_zodiacal()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -19,21 +16,43 @@ func menu(){
     fmt.Println("======= Julio Conchas ======")
     fmt.Println("= conchasjimenez@gmail.com =")
     fmt.Println("========= Practicas ========")
-    fmt.Println("[1] Prueba de clase")
+    fmt.Println("[1] Signo zodiacal.")
 }
-func prueba_clase(){
-    var temp int
+func signo_zodiacal(){
+    var dia int
+    var mes int
 
-    fmt.Print("Temp: ")
-    fmt.Scan(&temp)
+    fmt.Scanf("%d",&dia)
+    fmt.Scanf("%d",&mes)
 
-    if temp < 0 {
-        fmt.Println("Está helado")
-    } else if temp >= 0 && temp < 12 {
-        fmt.Println("Está haciendo frío")
-    } else if temp >= 12 && temp < 18 {
-        fmt.Println("Está agusto")
-    }else {
-        fmt.Println("Está caluroso")
+    if dia <= 31 && mes <= 12 {
+        if ( dia >= 21 && mes == 3 )||( dia <= 20 && mes == 4 ) {
+            fmt.Println("Aries")
+        } else if ( dia >= 21 && mes == 4 )||( dia <= 20 && mes == 5 ) {
+            fmt.Println("Tauro")
+        } else if ( dia >= 21 && mes == 5 )||( dia <= 21 && mes == 6 ) {
+            fmt.Println("Geminis")
+        } else if ( dia >= 22 && mes == 6 )||( dia <= 22 && mes == 7 ) {
+            fmt.Println("Cancer")
+        } else if ( dia >= 23 && mes == 7 )||( dia <= 22 && mes == 8 ) {
+            fmt.Println("Leo")
+        } else if ( dia >= 23 && mes == 8 )||( dia <= 22 && mes == 9 ) {
+            fmt.Println("Viergo")
+        } else if ( dia >= 23 && mes == 9 )||( dia <= 22 && mes == 10 ) {
+            fmt.Println("Libra")
+        } else if ( dia >= 23 && mes == 10 )||( dia <= 22 && mes == 11 ) {
+            fmt.Println("Escorpio")
+        }  else if ( dia >= 23 && mes == 11 )||( dia <= 21 && mes == 12 ) {
+            fmt.Println("Sagitario")
+        } else if ( dia >= 22 && mes == 12 )||( dia <= 20 && mes == 1 ) {
+            fmt.Println("Capricornio")
+        } else if ( dia >= 21 && mes == 1 )||( dia <= 18 && mes == 2 ) {
+            fmt.Println("Acuario")
+        } else if ( dia >= 19 && mes == 2 )||( dia <= 20 && mes == 3 ) {
+            fmt.Println("Piscis")
+        }
+    } else {
+        fmt.Println(" No existe mes con: días ",dia," meses",mes," lol ")
     }
+
 }
