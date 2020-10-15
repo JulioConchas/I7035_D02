@@ -12,7 +12,7 @@ func main()  {
     fmt.Scanf("%d",&option)
 
     switch option {
-    case 1: fibonacci()
+    case 1: fubonacci()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -21,5 +21,16 @@ func menu(){
     fmt.Println("= conchasjimenez@gmail.com =")
     fmt.Println("========= Practicas ========")
     fmt.Println("[1] Fibonacci.")
-    fmt.Println("[2] Número e.")
+}
+func fubonacci(){
+    var x int
+    fmt.Scanln(&x)
+    fmt.Println(fibonacci_recursivo(x))
+}
+func fibonacci_recursivo(n int) int{
+    if n < 2 {
+        return n
+    } else {
+        return (fibonacci_recursivo(n-1) + fibonacci_recursivo(n-2))
+    }
 }
