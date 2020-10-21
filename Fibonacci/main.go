@@ -16,6 +16,7 @@ func main()  {
     case 1: fubonacci()
     case 2: variadic()
     case 3: n_impares_generator()
+    case 4: intercambioMenu()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -26,6 +27,23 @@ func menu(){
     fmt.Println("[1] Fibonacci.")
     fmt.Println("[2] Variadic Function")
     fmt.Println("[3] Generador # impares")
+    fmt.Println("[4] Intercambio")
+}
+func intercambioMenu(){
+    fmt.Println("======== Intercambio =======")
+    var a,b int
+    fmt.Scanln(&a)
+    fmt.Scanln(&b)
+
+    fmt.Println("a:",a,"b:",b)
+    intercambio(&a,&b)
+    fmt.Println("a:",a,"b:",b)
+}
+func intercambio(x,y *int){
+    var aux int
+    aux = *x
+    *x = *y
+    *y = aux
 }
 func n_impares_generator(){
     fmt.Println("===== Generador Impares ====")
