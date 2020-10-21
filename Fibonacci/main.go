@@ -15,6 +15,7 @@ func main()  {
     switch option {
     case 1: fubonacci()
     case 2: variadic()
+    case 3: n_impares_generator()
     default: fmt.Println("Practica número:",option," no existe")
     }
 }
@@ -24,8 +25,28 @@ func menu(){
     fmt.Println("========= Practicas ========")
     fmt.Println("[1] Fibonacci.")
     fmt.Println("[2] Variadic Function")
+    fmt.Println("[3] Generador # impares")
+}
+func n_impares_generator(){
+    fmt.Println("===== Generador Impares ====")
+    nextImpar := generadorImpares()
+    fmt.Println(nextImpar())
+    fmt.Println(nextImpar())
+    fmt.Println(nextImpar())
+    fmt.Println(nextImpar())
+    fmt.Println(nextImpar())
+    fmt.Println(nextImpar())
+}
+func generadorImpares() func() uint {
+    i := uint(1)
+    return func () uint{
+        var par = i
+		i += 2
+        return par
+    }
 }
 func variadic(){
+    fmt.Println("========== Variadic ========")
     var slice []int
 
     for i := 0; i < 100;i++ {
@@ -54,6 +75,7 @@ func bigest_number(n ...int) int{
     return b
 }
 func fubonacci(){
+    fmt.Println("========= Fibonacci ========")
     var x int
     fmt.Scanln(&x)
     fmt.Println(fibonacci_recursivo(x))
