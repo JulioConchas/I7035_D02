@@ -40,70 +40,61 @@ func (s *Server) Calificacion_materia(name_maria_data string,reply *string) erro
     return nil
 }
 func (s *Server) Promedio_alumno(name string,reply *string) error {
-    // var suma float64
-    // var nMaterias float64
-    // var promedio float64
-    // nMaterias = 0
-    // for key,val := range Materias{
-    //     fmt.Println(key)
-    //     for alumno, calificacion := range val {
-    //         if alumno == name {
-    //             suma = suma + calificacion
-    //         }
-    //     }
-    //     nMaterias = nMaterias + 1
-    // }
-    // promedio = suma / nMaterias
-    // elString := fmt.Sprintf("%f", promedio)
-    // *reply = elString
-    *reply ="promedio"
+    var suma float64
+    var nMaterias float64
+    var promedio float64
+
+    index := isAlumno(name)
+    if index != -1 {
+        for key,val := range alumnos[index].Materias {
+            fmt.Println(name+":"+key)
+            suma = suma + val
+            nMaterias = nMaterias + 1
+        }
+    }
+    promedio = suma / nMaterias
+    elString := fmt.Sprintf("%f", promedio)
+    *reply = elString
     return nil
 }
 func (s *Server) Promedio_general(str string,reply *string) error {
-    // var suma float64
-    // var nAlumno float64
-    // var promedio float64
-    // nAlumno = 0
-    // for key,val := range Materias{
-    //     fmt.Println(key)
-    //     for alumno, calificacion := range val {
-    //         fmt.Println(alumno)
-    //         suma = suma + calificacion
-    //         nAlumno = nAlumno + 1
-    //     }
-    // }
-    // promedio = suma / nAlumno
-    // elString := fmt.Sprintf("%f", promedio)
-    // *reply = elString
-    *reply ="promedio"
+    var suma float64
+    var nMaterias float64
+    var suma_gral float64
+    var promedio float64
+
+    for i := 0; i < len(alumnos); i++ {
+        for key,val := range alumnos[i].Materias {
+            fmt.Println(str+":"+key)
+            suma = suma + val
+            nMaterias = nMaterias + 1
+        }
+        suma_gral=suma_gral+(suma/nMaterias)
+        suma=0
+        nMaterias=0
+    }
+    promedio = suma_gral / float64(len(alumnos))
+    elString := fmt.Sprintf("%f", promedio)
+    *reply = elString
     return nil
 }
 func (s *Server) Promedio_materia(name string,reply *string) error {
-    // var suma float64
-    // var nAlumno float64
-    // var promedio float64
-    // nAlumno = 0
-    // for key,val := range Materias{
-    //     fmt.Println(key)
-    //     if key == name {
-    //         for alumno, calificacion := range val {
-    //             fmt.Println(alumno)
-    //             suma = suma + calificacion
-    //             nAlumno = nAlumno + 1
-    //         }
-    //     }
-    // }
-    // promedio = suma / nAlumno
-    // elString := fmt.Sprintf("%f", promedio)
-    // *reply = elString
-    *reply ="promedio"
+    var suma float64
+    var nMaterias float64
+    var promedio float64
+
+    for i := 0; i < len(alumnos); i++ {
+        if _,aux := alumnos[i].Materias[name]; aux {
+            suma = suma + alumnos[i].Materias[name]
+            nMaterias = nMaterias + 1
+        }
+    }
+    promedio = suma / nMaterias
+    elString := fmt.Sprintf("%f", promedio)
+    *reply = elString
     return nil
 }
 func (s *Server) Print (str string, reply *string) error {
-    // for key,val := range Materias{
-    //     str1 := fmt.Sprintf("%s=\"%s\"", key, val)
-    //     str = str + str1
-    // }
     str = fmt.Sprintf("%s", alumnos)
     *reply = str
     return nil

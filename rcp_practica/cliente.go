@@ -61,6 +61,9 @@ func cliente(){
             var name_materia string
             var result string
 
+            fmt.Println("Materia: ")
+            fmt.Scanln(&name_materia)
+            
             err = c.Call("Server.Promedio_materia",name_materia,&result)
             if err != nil {
                 fmt.Println(err)
