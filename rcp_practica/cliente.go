@@ -35,38 +35,38 @@ func cliente(){
             } else {
                 fmt.Println("Registro: ",result)
             }
-        // case 2:
-        //     var name string
-        //     var result int64
-        //
-        //     fmt.Println("Number: ")
-        //     fmt.Scanln(&number)
-        //
-        //     err = c.Call("Server.Promedio_alumno",name,&result)
-        //     if err != nil {
-        //         fmt.Println(err)
-        //     } else {
-        //         fmt.Println("Promedio=",result)
-        //     }
-        // case 3:
-        //     var result int64
-        //
-        //     err = c.Call("Server.Promedio_general",&result)
-        //     if err != nil {
-        //         fmt.Println(err)
-        //     } else {
-        //         fmt.Println("Promedio=",result)
-        //     }
-        // case 3:
-        //     var name_materia string
-        //     var result int64
-        //
-        //     err = c.Call("Server.Promedio_materia",name_materia,&result)
-        //     if err != nil {
-        //         fmt.Println(err)
-        //     } else {
-        //         fmt.Println("Promedio=",result)
-        //     }
+        case 2:
+            var name string
+            var result string
+
+            fmt.Println("Name: ")
+            fmt.Scanln(&name)
+
+            err = c.Call("Server.Promedio_alumno",name,&result)
+            if err != nil {
+                fmt.Println(err)
+            } else {
+                fmt.Println("Promedio=",result)
+            }
+        case 3:
+            var result string
+
+            err = c.Call("Server.Promedio_general"," ",&result)
+            if err != nil {
+                fmt.Println(err)
+            } else {
+                fmt.Println("Promedio=",result)
+            }
+        case 4:
+            var name_materia string
+            var result string
+
+            err = c.Call("Server.Promedio_materia",name_materia,&result)
+            if err != nil {
+                fmt.Println(err)
+            } else {
+                fmt.Println("Promedio=",result)
+            }
         case 5:
             var result string
             err = c.Call("Server.Print","->",&result)
